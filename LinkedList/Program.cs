@@ -6,15 +6,15 @@
 
         static void Main(string[] args)
         {
-            //DataStructure.LinkedList<int> linkedList = new DataStructure.LinkedList<int>();
+            DataStructure.MyLinkedList<int> linkedList = new DataStructure.MyLinkedList<int>();
 
-            //linkedList.AddFirst(0);
-            //linkedList.AddFirst(1);
-            //linkedList.AddFirst(2);
-            //linkedList.AddFirst(3);
-            //linkedList.AddFirst(4);
+            linkedList.AddFirst(0);
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(2);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(4);
 
-            //linkedList.Remove(linkedList.First);
+            linkedList.Remove(linkedList.First);
 
 
         }
