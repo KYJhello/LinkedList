@@ -2,8 +2,6 @@
 {
     internal class Program
     {
-
-
         static void Main(string[] args)
         {
             DataStructure.MyLinkedList<int> linkedList = new DataStructure.MyLinkedList<int>();

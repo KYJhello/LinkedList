@@ -51,6 +51,24 @@
             yield return 2;
             yield return 3;
         }
+
+
+        // ####################
+        // 2023-04-21
+        // 김용준
+        // Iterator
+        // IEnumerator, IEnumerable
+        // ####################
+
+
+
+        // ##################################################
+        //
+        // 3. 반복기(이터레이터) - 디자인패턴 반복자 기술 면접
+        //
+        // ##################################################
+
+
         static void Main(string[] args)
         {
             Iterator.MyList<int> list = new Iterator.MyList<int>();
