@@ -248,13 +248,14 @@ namespace Iterator
             count--;
         }
 
-        // IEnumerable의 GetEnumerator 구현
+        // IEnumerator의 GetEnumerator 구현
 
         public IEnumerator<T> GetEnumerator()
         {
             return new Enumerator(this);
         }
-
+        
+        // IEnumerable 의  GetEnumerator 구현
         IEnumerator IEnumerable.GetEnumerator()
         {
             return new Enumerator(this);

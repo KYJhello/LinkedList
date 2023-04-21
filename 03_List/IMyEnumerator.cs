@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Iterator
 {
     // 실제 사용 X
     // 구성 확인용
-    public interface IMyEnumerator
+    public interface IMyEnumerator 
     {
         object? Current { get; }
         bool MoveNext();
