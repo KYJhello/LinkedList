@@ -66,11 +66,17 @@
         //
         // 3. 반복기(이터레이터) - 디자인패턴 반복자 기술 면접
         //
+        // 이터레이터는 데이터를 반복 처리하는 기능으로
+        // 메모리를 효율적으로 사용할 수 있게함
+        // foreach문에서 데이터가 변경된다면 예외가 발생할 수 있음
+
         // ##################################################
 
 
         static void Main(string[] args)
         {
+            // 2번 foreach에서 반복확인
+            //
             Iterator.MyList<int> list = new Iterator.MyList<int>();
             for (int i = 1; i <= 5; i++) list.Add(i);
 
