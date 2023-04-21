@@ -22,7 +22,7 @@ namespace DataStructure
             container.Add(item);
         }
         // 스택 맨 위의 아이템을 가져오고 기존값 삭제 x
-        public T Peek()
+        public T? Peek()
         {
             // 최상위 값을 가져옴
             return container[container.Count - 1];
@@ -34,6 +34,6 @@ namespace DataStructure
             container.RemoveAt(container.Count - 1);
             return item;
         }
-
+        public int GetCount() { return container.Count; }
     }
 }
