@@ -22,6 +22,7 @@ namespace DataStructure {
         // 열고 닫는게 맞는지 확인
         public bool IsTrue()
         {
+            
             foreach (char c in charArr)
             {
                 switch (c)

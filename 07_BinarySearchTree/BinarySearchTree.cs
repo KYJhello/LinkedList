@@ -170,6 +170,7 @@ namespace DataStructure
         // 노드 삭제를 위한 함수
         private void EraseNode(Node node)
         {
+            // 노드가 차일드를 지니지 않은 경우
             if (node.HasNoChild)
             {
                 if (node.IsLeftChild)
@@ -183,6 +184,7 @@ namespace DataStructure
                 else
                     root = null;
             }
+            // 노드가 좌or우 차일드를 지닌 경우
             else if (node.HasLeftChild || node.HasRightChild)
             {
                 Node parent = node.Parent;
@@ -195,16 +197,30 @@ namespace DataStructure
                 }
                 else if (node.IsRightChild)
                 {
-
+                    parent.Right = child;
+                    child.Parent = parent;
                 }
+                // node가 루트인경우
                 else
                 {
-
+                    root = child;
+                    child.Parent = null;
                 }
             }
-            else 
+            // 노드가 좌/우 차일드를 모두 지닌 경우
+            else
             {
-
+                // 후속 노드를 찾음
+                Node nextNode = node.Right;
+                
+                // 후속의 왼쪽 차일드가 없을 때 까지
+                while (nextNode.Left != null)
+                {
+                    nextNode = nextNode.Left;
+                }
+                node.Item = nextNode.Item;
+                // 후계자를 재귀적으로 삭제
+                EraseNode(nextNode);
             }
         }
     }
