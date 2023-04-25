@@ -172,13 +172,37 @@ namespace DataStructure
         {
             if (node.HasNoChild)
             {
-
+                if (node.IsLeftChild)
+                {
+                    node.Parent.Left = null;
+                }
+                else if (node.IsRightChild)
+                {
+                    node.Parent.Right = null;
+                }
+                else
+                    root = null;
             }
             else if (node.HasLeftChild || node.HasRightChild)
             {
+                Node parent = node.Parent;
+                Node child = node.HasLeftChild ? node.Left : node.Right;
 
+                if (node.IsLeftChild)
+                {
+                    parent.Left = child;
+                    child.Parent = parent;
+                }
+                else if (node.IsRightChild)
+                {
+
+                }
+                else
+                {
+
+                }
             }
-            else if (node.HasBothChild)
+            else 
             {
 
             }
