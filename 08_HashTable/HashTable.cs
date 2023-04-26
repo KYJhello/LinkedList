@@ -21,6 +21,7 @@ namespace DataStructure
             public TValue Value;
         }
 
+        // private Func<TKey, TValue> hashFunc;
         private Entry[] table;
 
         public Dictionary() { 
