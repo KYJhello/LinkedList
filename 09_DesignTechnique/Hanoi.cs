@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _09_DesignTechnique
 {
+
     internal class Hanoi
     {//static public void MoveAtoB( Stack<int> A, Stack<int> B)
      //{

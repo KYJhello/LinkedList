@@ -50,17 +50,27 @@ namespace _09_DesignTechnique
         }
         */
         // 2. 백트래킹
-        public static void NandM(int n , int m)
+        public static bool NandM(int n , int m)
         {
-            int len = 1;
+            //int len = 1;
+            //for(int i = 0; i < m; i++)
+            //{
+            //    len *= n;
+            //}
+            //int[] arr = new int[len];
+
+            // arr의 x 최대 길이는 m
+            // arr의 y 최대 길이는 n
+
+            int[,] answer = new int[m, n];
+            List<int> ans = new List<int>();
             for(int i = 0; i < m; i++)
             {
-                len *= n;
+                
+                
+                return true;
             }
-            int[] arr = new int[len];
-
-            
-
+            return false;
         }
 
 
