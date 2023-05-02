@@ -38,9 +38,11 @@ namespace _12_ShortestPath
                                          {INF,INF,INF,INF,INF,0  ,9  ,5  },
                                          {INF,INF,INF,INF,INF,INF,0  ,INF},
                                          {INF,INF,INF,INF,INF,9  ,9  ,0  }};
+
+            // out 매개변수 사용예정이라 초기화 생략가능
             int[] distance;
             int[] path;
-            DataStructure.Dijkstra.ShortestPath(arr1, 1,out distance, out path);
+            DataStructure.Dijkstra.ShortestPath(in arr1, 1,out distance, out path);
             Console.WriteLine("<Dijkstra>");
             PrintDijkstra(distance, path);
 
