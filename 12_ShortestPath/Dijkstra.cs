@@ -53,15 +53,15 @@ namespace DataStructure
                         minCost = distance[j];
                     }
                 }
-                // next가 -1이면 탈출
+                // exption(경로 없음) : next가 -1이면 탈출
                 if (next < 0)
                     break;
 
-                // 2. 직접연결된 거리보다 거쳐서 더 짧아진다면 갱신.
+                // 2. 직접연결된 거리보다 거쳐서 연결된 거리가 더 짧아진다면 갱신.
                 for (int j = 0; j < size; j++)
                 {
-                    // cost[j] : 목적지까지 직접 연결된 거리
-                    // cost[next] : 탐색중인 정점까지 거리
+                    // cost[j]        : 목적지까지 직접 연결된 거리
+                    // cost[next]     : 탐색중인 정점까지 거리
                     // graph[next, j] : 탐색중인 정점부터 목적지의 거리
                     if (distance[j] > distance[next] + graph[next, j])
                     {
@@ -69,6 +69,7 @@ namespace DataStructure
                         path[j] = next;
                     }
                 }
+                // visited 트루로 변경
                 visited[next] = true;
             }
         }
