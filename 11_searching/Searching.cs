@@ -81,6 +81,18 @@ namespace Search
             { true , false, false, false,  true },
             {  true, true , false,  true, false }
         };
+        const int INF = int.MaxValue;
+
+        // 예시 - 단방향 가중치 그래프 (단절은 최대값으로 표현)
+        int[,] matrixGraph4 = new int[5, 5]
+        {
+            {   0, 132, INF, INF,  16 },
+            {  12,   0, INF, INF, INF },
+            { INF,  38,   0, INF, INF },
+            { INF,  12, INF,   0,  54 },
+            { INF, INF, INF, INF,   0 },
+        };
+
         public static void Test()
         {
             if (matrixGraph3[3, 0])
@@ -111,6 +123,7 @@ namespace Search
             listGraph1[2].Add(4);
             listGraph1[3].Add(1);
             listGraph1[4].Add(3);
+            
         }
 
 
