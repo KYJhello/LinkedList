@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_TextRPG.Item
+namespace Project_TextRPG
 {
-    internal class Item
+    public abstract class Item
     {
+        public string name;
+        public string description;
+        public int weight;
+        public char icon = '★';
+        public Vector2 pos;
+        public abstract void Use();
     }
 }

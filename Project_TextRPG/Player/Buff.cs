@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_TextRPG.Player
+namespace Project_TextRPG
 {
-    internal class Buff
+    public class Buff
     {
+
+
     }
 }
