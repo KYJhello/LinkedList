@@ -94,6 +94,14 @@ namespace Project_TextRPG
             dragon.pos = new Vector2(12, 12);
             monsters.Add(dragon);
 
+            Dohwaga dohwaga = new Dohwaga();
+            dohwaga.pos = new Vector2(5, 5);
+            monsters.Add(dohwaga);
+
+            StoneSnake stoneS = new StoneSnake();
+            stoneS.pos = new Vector2(3, 3);
+            monsters.Add(stoneS);
+
             Item potion = new Potion();
             potion.pos = new Vector2(12, 1);
             items.Add(potion);

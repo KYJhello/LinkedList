@@ -23,7 +23,7 @@ namespace Project_TextRPG
             Level = 1;
             CurExp = 0;
             MaxExp = 100;
-            AP = 5;
+            AP = 15;
             DP = 1;
 
             skills = new List<Skill>();

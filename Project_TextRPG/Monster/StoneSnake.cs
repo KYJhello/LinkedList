@@ -1,42 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_TextRPG
 {
-    public class Dohwaga : Monster
+    public class StoneSnake : Monster
     {
         private Random random = new Random();
         private int moveTurn = 0;
-        public Dohwaga()
+        public StoneSnake()
         {
-            name = "도화가";
+            name = "돌뱀";
             curHp = 5;
             maxHp = 5;
-            ap = 1;
-            dp = 1;
+            ap = 10;
+            dp = 5;
+            shield = 2;
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("####################");
             sb.AppendLine("#                  #");
             sb.AppendLine("#  (엄청 귀여운  )  #");
-            sb.AppendLine("#  (도화가 이미지)  #");
+            sb.AppendLine("#  (돌뱀   이미지)  #");
             sb.AppendLine("#                  #");
             sb.AppendLine("####################");
             image = sb.ToString();
         }
         public override void MoveAction()
         {
-            // 10턴마다
-            if (moveTurn++ < 10)
+            // 3턴마다
+            if (moveTurn++ < 3)
             {
                 return;
             }
             moveTurn = 0;
 
-            // 한번에 5번 움직임
+            // 한번에 3번 움직임
             for (int i = 0; i < 5; i++)
             {
                 switch (random.Next(0, 4))

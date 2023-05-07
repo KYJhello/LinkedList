@@ -17,6 +17,7 @@ namespace Project_TextRPG
         public int maxHp;
         public int ap;
         public int dp;
+        public int? shield = 0;
 
         // 상속받은 개체에서 오버라이드할 함수
         public abstract void MoveAction();
@@ -49,6 +50,11 @@ namespace Project_TextRPG
         }
         public void TakeDamage(int damage)
         {
+            if (shield-- > 0)
+            {
+                Console.WriteLine($"{name}(은/는) 실드가 {shield} 회 남았다.");
+                return;
+            }
             if (damage > dp)
             {
                 Console.WriteLine($"{name}(은/는) {damage - dp} 데미지를 받았다.");
