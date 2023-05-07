@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_TextRPG
 {
+    
     public class Potion : Item
     {
         private int point = 10;
@@ -18,12 +19,14 @@ namespace Project_TextRPG
         }
 
         public override void Use()
-        {
+        { 
+            
             Console.WriteLine($"포션을 사용하여 플레이어의 체력을 {point} 회복시킵니다.");
             Thread.Sleep(1000);
             Data.player.Heal(point);
             Console.WriteLine($"플레이어의 체력이 {Data.player.CurHp}이 되었습니다.");
             Thread.Sleep(1000);
+            
         }
     }
 }

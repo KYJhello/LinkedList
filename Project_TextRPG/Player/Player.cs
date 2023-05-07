@@ -30,7 +30,14 @@ namespace Project_TextRPG
             skills.Add(new Skill("공격하기", Attack));
             skills.Add(new Skill("회복하기", Recovery));
 
-            image = "\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡴⠖⣒⡀⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣤⣼⣇⣀⢸⡇⣭⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⢸⣿⣿⣿⣿⣿⡏⠿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⢸⣿⡷⣿⣿⣿⠐⣶⣭⣽⡿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⢀⠠⠂⢁⠆\r\n⠀⠀⢀⣾⣿⠧⠸⣿⣿⠈⠸⠿⣿⠁⠋⢙⣿⣿⣿⣿⣿⣆⠀⠀⢀⠠⠂⠁⡀⠊⠀⠀\r\n⠤⠴⠟⣿⠟⠓⢦⣬⣍⣥⣴⣶⣿⣿⣿⡏⡇⠉⠻⢿⣿⣿⣿⣊⡀⢀⣴⠊⠀⠀⠀⠀\r\n⠀⠀⠀⢿⠞⠉⡹⠟⢿⣿⣿⣿⣿⣿⣿⣷⣿⡿⣦⣼⣿⣿⣿⣿⣷⣿⣿⣧⠀⠀⠀⠀\r\n⠀⠀⠀⠘⣄⠈⠁⠀⢈⣿⣿⠟⣏⣡⡼⡟⢻⣿⣿⣹⣿⣿⣿⣿⣿⡿⣿⣿⡆⠀⠀⠀\r\n⠀⠀⠀⠀⣻⣷⣶⣾⣿⣿⣿⣶⡟⠯⠄⠀⠘⣿⣿⡀⣿⣿⣿⣿⢿⣿⣿⣿⠗⠁⠀⠀\r\n⠀⠀⢀⡠⠟⣿⣿⡿⢿⣿⣿⡌⣷⠟⢣⠁⠈⡻⣿⣿⣾⣿⣿⣿⣷⣞⠉⠁⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⢿⡇⠀⠀⠹⣿⣷⡙⠇⠡⣢⣵⣿⡿⢿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠈⢻⠀⠀⠀⣿⣿⣷⣦⣾⣿⣏⠁⠀⠀⠈⢻⣿⣿⢿⣿⣿⠇⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠈⣦⣤⣤⣿⣿⣿⣿⣿⣿⡿⠷⣶⣤⣀⣴⣿⢿⣿⣟⡁⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⡓⠛⣉⠏⠉⠀⠀⠀⠈⠁⠀⠀⠀⠘⠛⠁⠊⠉⠉⠁⠀⠀⠀⠀⠀\r\n";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("####################");
+            sb.AppendLine("#                  #");
+            sb.AppendLine("#  (  플레이어   )  #");
+            sb.AppendLine("#  (텍스트 이미지)  #");
+            sb.AppendLine("#                  #");
+            sb.AppendLine("####################");
+            image = sb.ToString();
         }
         public int CurHp { get; private set; }
         public int MaxHp { get; private set; }
@@ -83,6 +90,19 @@ namespace Project_TextRPG
             CurHp += heal;
             if (CurHp > MaxHp)
                 CurHp = MaxHp;
+        }
+        public void AddShield(int shield)
+        {
+            if(CurDp + shield < 0)
+            {
+                CurDp = 0;
+                return;
+            }
+            CurDp += shield;
+        }
+        public void DeleteShield(int turn)
+        {
+
         }
         public void Attack(Monster monster)
         {

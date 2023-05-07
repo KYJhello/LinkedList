@@ -23,7 +23,9 @@ namespace Project_TextRPG
             monsters = new List<Monster>();
             items = new List<Item>();
             inventory.Add(new Potion());
-            // inventory.Add(new LargePotion());
+            inventory.Add(new ProtectPotion());
+            inventory.Add(new LargePotion());
+            inventory.Add(new MeteorScroll());
         }
         public static bool IsObjectInPos(Vector2 pos)
         {

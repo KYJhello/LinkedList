@@ -65,10 +65,11 @@ namespace Project_TextRPG
             curScene = battleScene;
             battleScene.StartBattle(monster);
         }
-        //public void Inventory()
-        //{
-        //    Scene = inventoryScene;
-        //}
+        public void Inventory()
+        {
+            curScene = inventoryScene;
+        }
+        
         public void GameStart()
         {
             Data.LoadLevel();

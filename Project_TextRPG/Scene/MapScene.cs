@@ -17,6 +17,33 @@ namespace Project_TextRPG
         {
             ConsoleKeyInfo input = Console.ReadKey();
 
+            while (true)
+            {
+                input = Console.ReadKey();
+
+                if (input.Key == ConsoleKey.Q ||
+                    input.Key == ConsoleKey.I ||
+                    input.Key == ConsoleKey.UpArrow ||
+                    input.Key == ConsoleKey.DownArrow ||
+                    input.Key == ConsoleKey.LeftArrow ||
+                    input.Key == ConsoleKey.RightArrow)
+                {
+                    break;
+                }
+            }
+
+            // 시스템 키 입력시 씬 전환
+            if (input.Key == ConsoleKey.Q)
+            {
+                game.MainMenu();
+                return;
+            }
+            else if (input.Key == ConsoleKey.I)
+            {
+                game.Inventory();
+                return;
+            }
+
             switch (input.Key)
             {
                 case ConsoleKey.UpArrow:
@@ -58,6 +85,11 @@ namespace Project_TextRPG
                 }
             }
         }
+        public void GenerateMap()
+        {
+            Data.LoadLevel();
+        }
+
         private void PrintMap()
         {
             StringBuilder sb = new StringBuilder();
@@ -90,6 +122,25 @@ namespace Project_TextRPG
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(Data.player.pos.x * 2, Data.player.pos.y);
             Console.Write(Data.player.icon);
+
+        }
+        private void PrintMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            (int left, int top) pos = Console.GetCursorPosition();
+            Console.SetCursorPosition(Data.map.GetLength(1) + 3, 1);
+            Console.Write("메뉴 : Q");
+            Console.SetCursorPosition(Data.map.GetLength(1) + 3, 3);
+            Console.Write("이동 : 방향키");
+            Console.SetCursorPosition(Data.map.GetLength(1) + 3, 4);
+            Console.Write("인벤토리 : I");
+        }
+
+        private void PrintInfo()
+        {
+            Console.SetCursorPosition(0, Data.map.GetLength(0) + 1);
+            Console.Write($"HP : {Data.player.CurHp,3}/{Data.player.MaxHp,3}\t");
+            Console.Write($"EXP : {Data.player.CurExp,3}/{Data.player.MaxExp,3}");
         }
     }
 }

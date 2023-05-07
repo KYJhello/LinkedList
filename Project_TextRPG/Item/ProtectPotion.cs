@@ -20,7 +20,9 @@ namespace Project_TextRPG
         {
             Console.WriteLine($"보호포션을 사용하여 플레이어는 {Point} 만큼 보호막을 얻었습니다.");
             Thread.Sleep( 1000 );
-            Data.player.CurDp += 50;
+            Data.player.AddShield(Point);
+            Console.WriteLine($"플레이어의 실드가 {Data.player.CurDp}이 되었습니다.");
+            Thread.Sleep(1000);
         }
     }
 }
