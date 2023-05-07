@@ -8,5 +8,13 @@ namespace Project_TextRPG
 {
     public class Skill
     {
+        public string name;
+        public Action<Monster> action;
+
+        public Skill(string name, Action<Monster> action)
+        {
+            this.name = name;
+            this.action = action;
+        }
     }
 }

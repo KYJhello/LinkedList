@@ -43,28 +43,37 @@ namespace Project_TextRPG
             battleScene = new BattleScene(this);
             curScene = mainMenu;
         }
-        
-
         private void Render()
         {
             Console.Clear();
             curScene.Render();
         }
-        private void Input()
-        {
-
-        }
         private void Update()
         {
             curScene.Update();
         }
+        public void MainMenu()
+        {
+            curScene = mainMenu;
+        }
+        public void Map()
+        {
+            curScene = mapScene;
+        }
+        public void Battle(Monster monster)
+        {
+            curScene = battleScene;
+            battleScene.StartBattle(monster);
+        }
+        //public void Inventory()
+        //{
+        //    Scene = inventoryScene;
+        //}
         public void GameStart()
         {
             Data.LoadLevel();
             curScene = mapScene;
         }
-
-
         public void GameOver(string text = "")
         {
             Console.Clear();

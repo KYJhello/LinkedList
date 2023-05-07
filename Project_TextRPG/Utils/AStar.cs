@@ -16,7 +16,7 @@ namespace Project_TextRPG
     //        this.y = y;
     //    }
     //}
-    internal class AStar
+    public class AStar
     {
         const int CostStraight = 10;
         const int CostDiagonal = 14;
