@@ -37,7 +37,9 @@ namespace Project_TextRPG
                 { false,  true, false,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true, false },
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
                 };
+            player.pos = new Vector2(2, 2);
         }
+        
     }
     
 }

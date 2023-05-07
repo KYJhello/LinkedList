@@ -11,7 +11,7 @@ namespace Project_TextRPG
     {
         public string image;
         public char icon = '♥';
-        public Vector2 pos = new Vector2(1,1);
+        public Vector2 pos;
         public List<Skill> skills;
         public List<Buff> buffs;
 

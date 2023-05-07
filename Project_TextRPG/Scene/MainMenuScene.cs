@@ -18,6 +18,7 @@ namespace Project_TextRPG
 
             sb.AppendLine("1:게임시작");
             sb.AppendLine("2:게임종료");
+            sb.Append("메뉴를 선택하세요 : ");
 
             Console.WriteLine(sb);
         }
@@ -29,19 +30,17 @@ namespace Project_TextRPG
             if (!int.TryParse(input, out command))
             {
                 Console.WriteLine("잘못 입력 하셨습니다.");
-                // 5sec 기다리기
+                // 1sec 기다리기
                 Thread.Sleep(1000);
                 return;
             }
             switch (command)
             {
                 case 1:
-                    Console.WriteLine("잘못 입력 하셨습니다.");
-                    Thread.Sleep(1000);
+                    game.GameStart();
                     break;
                 case 2:
-                    Console.WriteLine("잘못 입력 하셨습니다.");
-                    Thread.Sleep(1000);
+                    game.GameOver("게임을 종료했습니다.");
                     break;
                 default:
                     Console.WriteLine("잘못 입력 하셨습니다.");

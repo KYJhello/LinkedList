@@ -19,11 +19,11 @@ namespace Project_TextRPG
         {
             // 1. 초기화
             Init();
+            //GameStart();
 
             // 2. 게임 루프
-            while(running)
+            while (running)
             {
-                GameStart();
                 // 3. 랜더링
                 Render();
 
@@ -63,6 +63,8 @@ namespace Project_TextRPG
             Data.LoadLevel();
             curScene = mapScene;
         }
+
+
         public void GameOver(string text = "")
         {
             Console.Clear();

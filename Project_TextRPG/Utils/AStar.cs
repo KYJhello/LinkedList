@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace Project_TextRPG
 {
-    public struct Point
-    {
-        public int x;
-        public int y;
-        public Point(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-    }
+    //public struct Point
+    //{
+    //    public int x;
+    //    public int y;
+    //    public Point(int x, int y)
+    //    {
+    //        this.x = x;
+    //        this.y = y;
+    //    }
+    //}
     internal class AStar
     {
         const int CostStraight = 10;
         const int CostDiagonal = 14;
 
-        static Point[] Direction =
+        static Vector2[] Direction =
         {
-            new Point(  0, +1 ),			// 상
-			new Point(  0, -1 ),			// 하
-			new Point( -1,  0 ),			// 좌
-			new Point( +1,  0 ), 			// 우
-			new Point( -1, +1 ),		    // 좌상
-			new Point( -1, -1 ),		    // 좌하
-			new Point( +1, +1 ),		    // 우상
-			new Point( +1, -1 )		        // 우하
+            new Vector2(  0, +1 ),			// 상
+			new Vector2(  0, -1 ),			// 하
+			new Vector2( -1,  0 ),			// 좌
+			new Vector2( +1,  0 ), 			// 우
+			new Vector2( -1, +1 ),		    // 좌상
+			new Vector2( -1, -1 ),		    // 좌하
+			new Vector2( +1, +1 ),		    // 우상
+			new Vector2( +1, -1 )		        // 우하
 		};
 
 
         
 
-        public static bool PathFinding(bool[,] tileMap, Point start,
-            Point end, out List<Point> path)
+        public static bool PathFinding(bool[,] tileMap, Vector2 start,
+            Vector2 end, out List<Vector2> path)
         {
             int ySize = tileMap.GetLength(0);
             int xSize = tileMap.GetLength(1);
@@ -67,12 +67,12 @@ namespace Project_TextRPG
                 // 도착했다고 판단해서 경로 반환
                 if (nextNode.point.x == end.x && nextNode.point.y == end.y)
                 {
-                    Point? pathPoint = end;
-                    path = new List<Point>();
+                    Vector2? pathPoint = end;
+                    path = new List<Vector2>();
 
                     while (pathPoint != null)
                     {
-                        Point point = pathPoint.GetValueOrDefault();
+                        Vector2 point = pathPoint.GetValueOrDefault();
                         path.Add(point);
                         pathPoint = nodes[point.y, point.x].parent;
                     }
@@ -109,8 +109,8 @@ namespace Project_TextRPG
 
                     // 4-2. 탐색한 정점 만들기
                     int g = nextNode.g + ((nextNode.point.x == x || nextNode.point.y == y) ? CostStraight : CostDiagonal);
-                    int h = Heuristic(new Point(x, y), end);
-                    ASNode newNode = new ASNode(new Point(x, y), nextNode.point, g, h);
+                    int h = Heuristic(new Vector2(x, y), end);
+                    ASNode newNode = new ASNode(new Vector2(x, y), nextNode.point, g, h);
 
                     // 4-3. 정점의 갱신이 필요한 경우 새로운 정점으로 할당
                     if (nodes[y, x] == null ||      // 점수계산이 되지 않은 정점이거나
@@ -127,7 +127,7 @@ namespace Project_TextRPG
 
         // 휴리스틱(Heyristic) : 최상의 경로를 추정하는 순위값,
         //                      휴리스틱에 의해 경로탐색 효율이 결정
-        private static int Heuristic(Point start, Point end)
+        private static int Heuristic(Vector2 start, Vector2 end)
         {
             int xSize = Math.Abs(start.x - end.x);
             int ySize = Math.Abs(start.y - end.y);
@@ -137,14 +137,14 @@ namespace Project_TextRPG
 
         private class ASNode
         {
-            public Point point;     // 현재 정점 위치
-            public Point? parent;   // 이 정점을 탐색한 정점
+            public Vector2 point;     // 현재 정점 위치
+            public Vector2? parent;   // 이 정점을 탐색한 정점
 
             public int f;           // f(x) = g(x) + h(x) : 총거리
             public int g;           // 현재까지의 거리, 즉 지금까지 경로 가중치
             public int h;           // 휴리스틱 : 앞으로 예상되는 거리, 목표까지 추정경로 가중치
         
-            public ASNode(Point point, Point? parent,int g, int h)
+            public ASNode(Vector2 point, Vector2? parent,int g, int h)
             {
                 this.point = point;
                 this.parent = parent;
