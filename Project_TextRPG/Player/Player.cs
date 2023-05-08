@@ -39,14 +39,14 @@ namespace Project_TextRPG
             sb.AppendLine("####################");
             image = sb.ToString();
         }
-        public int CurHp { get; private set; }
-        public int MaxHp { get; private set; }
+        public int CurHp { get; protected set; }
+        public int MaxHp { get; protected set; }
         public int CurDp { get; set; }
-        public int Level { get; private set; }
-        public int CurExp { get; private set; }
-        public int MaxExp { get; private set; }
-        public int AP { get; private set; }
-        public int DP { get; private set; }
+        public int Level { get; protected set; }
+        public int CurExp { get; protected set; }
+        public int MaxExp { get; protected set; }
+        public int AP { get; protected set; }
+        public int DP { get; protected set; }
 
 
         public void Move(Direction dir)

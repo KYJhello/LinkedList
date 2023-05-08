@@ -17,8 +17,9 @@ namespace Project_TextRPG
 
 
         // 플레이어 초기화 후 진행
-        public static void Init() { 
-            player = new Player();
+        public static void Init() {
+            //player = new Player();
+            player = new MagicMaster();
             inventory = new List<Item>();
             monsters = new List<Monster>();
             items = new List<Item>();

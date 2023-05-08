@@ -19,7 +19,10 @@ namespace Project_TextRPG
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine($"{monster.name}    {monster.curHp,3}/{monster.maxHp,3}");
-            Console.WriteLine($"보유 실드 횟수 : {monster.shield}");
+            if (monster.shield >= 0)
+            {
+                Console.WriteLine($"보유 실드 횟수 : {monster.shield}");
+            }
             Console.WriteLine();
             Console.WriteLine(monster.image);
             Console.WriteLine();
